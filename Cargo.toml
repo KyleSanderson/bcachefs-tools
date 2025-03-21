@@ -40,12 +40,12 @@ strip = "none"
 maintainer = "Kent Overstreet <koverstreet@linux.dev>"
 copyright = "2025, Kent Overstreet"
 assets = [
-    ["target/release/bcachefs-tools", "usr/bin/", "755"],
+    ["target/release/bcachefs", "usr/bin/", "755"],
 ]
 
 [package.metadata.rpm]
 license = "MIT"
 requires = ["libc"]
 assets = [
-    ["target/release/bcachefs-tools", "/usr/bin/bcachefs-tools", "755"],
+    ["target/release/bcachefs", "/usr/bin/bcachefs", "755"],
 ]
