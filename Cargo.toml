@@ -43,7 +43,7 @@ assets = [
     ["target/release/bcachefs", "usr/bin/", "755"],
 ]
 
-[package.metadata.rpm]
+[package.metadata.generate-rpm]
 license = "MIT"
 requires = ["libc"]
 assets = [
