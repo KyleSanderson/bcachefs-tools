@@ -35,3 +35,17 @@ default-features = false
 
 [profile.release]
 strip = "none"
+
+[package.metadata.deb]
+maintainer = "Kent Overstreet <koverstreet@linux.dev>"
+copyright = "2025, Kent Overstreet"
+assets = [
+    ["target/release/bcachefs", "usr/bin/", "755"],
+]
+
+[package.metadata.generate-rpm]
+license = "MIT"
+requires = ["libc"]
+assets = [
+    ["target/release/bcachefs", "/usr/bin/bcachefs", "755"],
+]

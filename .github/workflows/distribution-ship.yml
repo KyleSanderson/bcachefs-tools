@@ -1,0 +1,30 @@
+name: "Distribution Binaries"
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+      - name: Install cargo-deb and ccargo-generate-rpm
+        run: cargo install cargo-deb cargo-generate-rpm
+
+      - name: Install system dependencies
+        run: |
+         sudo apt install -y pkg-config libaio-dev libblkid-dev libkeyutils-dev \
+         liblz4-dev libsodium-dev liburcu-dev libzstd-dev \
+         uuid-dev zlib1g-dev valgrind libudev-dev udev git build-essential \
+         python3 python3-docutils libclang-dev debhelper dh-python
+
+      - name: Build release
+        run: make -j`nproc`
+
+      - name: Build Debian Ubuntu package
+        run: cargo deb
+
+      - name: Build RPM package
+        run: cargo generate-rpm
