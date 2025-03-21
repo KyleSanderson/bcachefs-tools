@@ -39,7 +39,6 @@ strip = "none"
 [package.metadata.deb]
 maintainer = "Kent Overstreet <koverstreet@linux.dev>"
 copyright = "2025, Kent Overstreet"
-license-file = ["LICENSE"]
 assets = [
     ["target/release/bcachefs-tools", "usr/bin/", "755"],
 ]
