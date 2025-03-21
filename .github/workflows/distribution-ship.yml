@@ -10,8 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions-rust-lang/setup-rust-toolchain@v1
-      - name: Install cargo-deb and cargo-rpm
-        run: cargo install cargo-deb cargo-rpm
+      - name: Install cargo-deb and ccargo-generate-rpm
+        run: cargo install cargo-deb cargo-generate-rpm
 
       - name: Install system dependencies
         run: |
@@ -27,4 +27,4 @@ jobs:
         run: cargo deb
 
       - name: Build RPM package
-        run: cargo rpm build
+        run: cargo generate-rpm
