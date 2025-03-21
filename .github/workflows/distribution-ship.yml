@@ -21,10 +21,7 @@ jobs:
          python3 python3-docutils libclang-dev debhelper dh-python
 
       - name: Build release
-        run: cargo build --release
-
-      - name: Build release
-        run: cargo build --release
+        run: make -j`nproc`
 
       - name: Build Debian Ubuntu package
         run: cargo deb
